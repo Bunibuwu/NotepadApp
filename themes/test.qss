@@ -1,0 +1,155 @@
+/* ---------- Nightfall QSS Theme ---------- */
+
+/* --- QWidget base --- */
+QWidget {
+    background-color: #1e1e2f;
+    color: #c8c8d3;
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 11pt;
+}
+
+/* --- QPlainTextEdit / QTextEdit --- */
+QPlainTextEdit, QTextEdit {
+    background-color: #1e1e2f;
+    border: 1px solid #3a3a4d;
+    border-radius: 6px;
+    padding: 4px;
+    selection-background-color: #565676;
+    selection-color: #ffffff;
+    color: #e0e0e0;
+}
+
+/* --- QTabWidget / QTabBar --- */
+QTabWidget::pane {
+    border-top: 1px solid #3a3a4d;
+    background: #1e1e2f;
+}
+
+QTabBar::tab {
+    background: #2a2a40;
+    color: #c8c8d3;
+    padding: 6px 12px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    margin-right: 2px;
+}
+
+QTabBar::tab:selected {
+    background: #3c3c5a;
+    color: #ffffff;
+}
+
+QTabBar::tab:hover {
+    background: #4a4a6a;
+}
+
+/* --- QMenuBar / QMenu --- */
+QMenuBar {
+    background-color: #1e1e2f;
+}
+
+QMenuBar::item {
+    background: transparent;
+    padding: 4px 10px;
+}
+
+QMenuBar::item:selected {
+    background: #3c3c5a;
+    color: #ffffff;
+}
+
+QMenu {
+    background-color: #2a2a40;
+    border: 1px solid #3a3a4d;
+}
+
+QMenu::item {
+    padding: 5px 25px 5px 20px;
+    background-color: transparent;
+}
+
+QMenu::item:selected {
+    background-color: #3c3c5a;
+    color: #ffffff;
+}
+
+/* --- QPushButton --- */
+QPushButton {
+    background-color: #3c3c5a;
+    border-radius: 6px;
+    padding: 4px 12px;
+    color: #ffffff;
+}
+
+QPushButton:hover {
+    background-color: #565676;
+}
+
+QPushButton:pressed {
+    background-color: #6a6a88;
+}
+
+/* --- QComboBox --- */
+QComboBox {
+    background-color: #2a2a40;
+    border: 1px solid #3a3a4d;
+    border-radius: 6px;
+    padding: 4px;
+    color: #e0e0e0;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #2a2a40;
+    selection-background-color: #565676;
+    selection-color: #ffffff;
+}
+
+/* --- QScrollBar --- */
+QScrollBar:vertical {
+    background: #2a2a40;
+    width: 12px;
+    margin: 0px;
+    border-radius: 6px;
+}
+
+QScrollBar::handle:vertical {
+    background: #565676;
+    min-height: 20px;
+    border-radius: 6px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #6a6a88;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    background: none;
+}
+
+/* --- QStatusBar --- */
+QStatusBar {
+    background-color: #1e1e2f;
+    color: #c8c8d3;
+    border-top: 1px solid #3a3a4d;
+}
+
+/* --- QLabel --- */
+QLabel {
+    color: #c8c8d3;
+}
+
+/* --- QDialog --- */
+QDialog {
+    background-color: #1e1e2f;
+}
+
+/* --- Highlight current line in editor --- */
+QPlainTextEdit::highlight {
+    background-color: #2a2a40;
+}
+
+/* --- Selection for read-only / disabled fields --- */
+QWidget:disabled {
+    color: #7a7a8f;
+    background-color: #2a2a40;
+}
