@@ -1,14 +1,20 @@
-# compile.py
 import sys
+import os
 import PyInstaller.__main__
+
+# Determine the proper separator for add-data
+if sys.platform.startswith("win"):
+    sep = ";"
+else:
+    sep = ":"
 
 # Paths to include manually
 datas = [
-    "main.py;.",          # main script
-    "main.ui;.",          # main UI
-    "replace.ui;.",       # replace dialog UI
-    "settings.ui;.",      # settings dialog UI
-    "themes/;themes"      # include all theme QSS files
+    f"main.py{sep}.",
+    f"main.ui{sep}.",
+    f"replace.ui{sep}.",
+    f"settings.ui{sep}.",
+    f"themes/{sep}themes"
 ]
 
 # Hidden imports for PySide6 and qt_themes
@@ -20,21 +26,17 @@ hiddenimports = [
     "qt_themes",
 ]
 
-# PyInstaller options
 opts = [
     "main.py",
     "--name=NotepadApp",
-    "--onefile",          # single executable
-    "--windowed",         # no console
+    "--onefile",
+    "--windowed",
 ]
 
-# add data files
 for d in datas:
     opts.append(f"--add-data={d}")
 
-# add hidden imports
 for h in hiddenimports:
     opts.append(f"--hidden-import={h}")
 
-# run PyInstaller
 PyInstaller.__main__.run(opts)
