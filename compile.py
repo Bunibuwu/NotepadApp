@@ -1,30 +1,40 @@
 # compile.py
-import PyInstaller.__main__
 import sys
-import os
+import PyInstaller.__main__
 
-# Files/folders to include
-assets = [
-    ("main.ui", "."),
-    ("settings.ui", "."),
-    ("replace.ui", "."),
-    ("themes", "themes")
+# Paths to include manually
+datas = [
+    "main.py;.",          # main script
+    "main.ui;.",          # main UI
+    "replace.ui;.",       # replace dialog UI
+    "settings.ui;.",      # settings dialog UI
+    "themes/;themes"      # include all theme QSS files
 ]
 
-# Platform-specific separator
-sep = ";" if sys.platform.startswith("win") else ":"
+# Hidden imports for PySide6 and qt_themes
+hiddenimports = [
+    "PySide6.QtWidgets",
+    "PySide6.QtGui",
+    "PySide6.QtCore",
+    "PySide6.QtUiTools",
+    "qt_themes",
+]
 
-# Build --add-data args
-add_data_args = []
-for src, dst in assets:
-    if os.path.exists(src):
-        add_data_args.append(f"--add-data={src}{sep}{dst}")
-
-# Run PyInstaller
-PyInstaller.__main__.run([
+# PyInstaller options
+opts = [
     "main.py",
-    "--onefile",
-    "--windowed",            # no console window
     "--name=NotepadApp",
-    "--collect-all=PySide6",  # bundle all Qt DLLs, plugins, resources
-] + add_data_args)
+    "--onefile",          # single executable
+    "--windowed",         # no console
+]
+
+# add data files
+for d in datas:
+    opts.append(f"--add-data={d}")
+
+# add hidden imports
+for h in hiddenimports:
+    opts.append(f"--hidden-import={h}")
+
+# run PyInstaller
+PyInstaller.__main__.run(opts)

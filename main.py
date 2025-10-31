@@ -1,4 +1,3 @@
-# main.py (refactored, fixed zoom out, UI fallbacks)
 import sys
 import os
 import json
