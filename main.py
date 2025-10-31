@@ -328,7 +328,7 @@ class NotepadApp(QApplication):
         except Exception:
             themes = []
         # ensure some defaults exist
-        for d in ("one_dark_two", "monokai", "nord", "catppuccin_latte", "catppuccin_frappe", "catppuccin_macchiato", "catppuccin_mocha", "atom_one", "github_dark", "github_light", "dracula", "blender"):
+        for d in ("one_dark_two", "monokai", "nord", "catppuccin_latte", "catppuccin_frappe", "catppuccin_macchiato", "catppuccin_mocha", "atom_one", "github_dark", "github_light", "dracula"):
             if d not in themes:
                 themes.append(d)
         if os.path.isdir(THEMES_FOLDER):

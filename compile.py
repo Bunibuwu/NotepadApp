@@ -31,6 +31,7 @@ opts = [
     "--name=NotepadApp",
     "--onefile",
     "--windowed",
+    "--collect-data=qt_themes",
 ]
 
 for d in datas:
